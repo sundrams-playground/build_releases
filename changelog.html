@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            color: #333;
+            background-color: #fff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #Fe01b1;
+        }
+
+        .changelog-content {
+            background-color: #feeaf8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-top: 20px;
+            color: #Fe01b1;
+        }
+
+        .toggle-mode {
+            cursor: pointer;
+            font-size: 24px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        .dark-mode .changelog-content {
+            background-color: #3a003d;
+            color: #e0e0e0;
+        }
+
+        .dark-mode h1, .dark-mode h2 {
+            color: #ff66c4;
+        }
+    </style>
+</head>
+<body>
+    <span class="toggle-mode" onclick="toggleDarkMode()">🌙</span>
+    <h1>Changelog</h1>
+    
+    <div class="changelog-content">
+        <h2>2025-01-22</h2>
+        <p>Initial release with major performance improvements.</p>
+        <p>Initial release with major performance improvements1.</p>
+        
+        <h2>2025-01-25</h2>
+        <p>Fixed minor UI glitches and improved battery optimization.</p>
+        
+        <h2>2025-02-01</h2>
+        <p>Added support for new devices and enhanced security features.</p>
+        
+        <h2>2025-02-05</h2>
+        <p>Resolved Bluetooth connectivity issues and improved system stability.</p>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            const toggle = document.querySelector(".toggle-mode");
+            body.classList.toggle("dark-mode");
+            if (body.classList.contains("dark-mode")) {
+                toggle.textContent = "☀️";
+                localStorage.setItem("theme", "dark");
+            } else {
+                toggle.textContent = "🌙";
+                localStorage.setItem("theme", "light");
+            }
+        }
+
+        (function () {
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme === "dark") {
+                document.body.classList.add("dark-mode");
+                document.querySelector(".toggle-mode").textContent = "☀️";
+            }
+        })();
+    </script>
+</body>
+</html>

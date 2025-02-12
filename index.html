@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fogos Release</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333;
+            --secondary-text-color: #444;
+            --highlight-bg: #feeaf8;
+            --button-bg: #Fe01b1;
+            --button-hover-bg: #fe01b1;
+            --changelog-link: #Fe01b1;
+        }
+        
+        .dark-mode {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --secondary-text-color: #bbbbbb;
+            --highlight-bg: #333;
+            --button-bg: #ff1493;
+            --button-hover-bg: #ff007f;
+            --changelog-link: #ff66b2;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: var(--secondary-text-color);
+            margin: 30px 0 15px 0;
+        }
+
+        .release-info {
+            background-color: var(--highlight-bg);
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .download-section {
+            margin: 25px 0;
+        }
+
+        .download-button {
+            display: inline-block;
+            background-color: var(--button-bg);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .download-button:hover {
+            background-color: var(--button-hover-bg);
+        }
+
+        .etag {
+            font-family: monospace;
+            font-size: 14px;
+            color: var(--secondary-text-color);
+            margin-top: 20px;
+        }
+
+        .changelog-link {
+            color: var(--changelog-link);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .changelog-link:hover {
+            text-decoration: underline;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            padding: 10px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--text-color);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌞</button>
+    
+    <h1>Hermosa. Simplemente, hermosa.</h1>
+    
+    <h2>Samsung Galaxy M30s</h2>
+    
+    <div class="release-info">
+        Release Production: 2025-01-22 05:19:50 +0000 UTC<br>
+        Release Production: ap4a.250105.002.b1
+    </div>
+
+    <div class="download-section">
+        <h3>File</h3>
+        <a href="/path/to/fogos.zip" class="download-button" download>
+            Download Build (Release Production)
+        </a>
+        <p><a href="changelog.html" class="changelog-link">Changelog</a></p>
+    </div>
+
+    <div class="etag">
+        Etag: 168000c724a095b78ba76c39e50b6195144
+    </div>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            document.querySelector('.theme-toggle').textContent = isDark ? '🌙' : '🌞';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+        
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.querySelector('.theme-toggle').textContent = '🌙';
+        }
+    </script>
+</body>
+</html>
